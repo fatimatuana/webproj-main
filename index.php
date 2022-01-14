@@ -35,6 +35,7 @@
                     "ticketList" => "./ticketList.php",
                     "loginTest" => "./loginTest.php",
                     "settings" => "./settings.php",
+                    "allTickets" => "./allTickets.php",
                     "signUpGuest" => "./signUpGuest.php"];
         $site = "home";
         if (isset($_GET["site"])) {

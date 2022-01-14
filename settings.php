@@ -23,7 +23,6 @@
           //  header("Location:?site=ticketList"); 
           header("refresh:2;url=?site=ticketList" ); //redirect after 2 sec
         }
-       
 ?>
 
 <body>

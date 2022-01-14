@@ -27,10 +27,13 @@
                                       <a class="<?= ($site == "logout" ? "active" : "") ?> dropdown-item" href="./logout.php">Logout</a>
                                   </ul>
                                 </li>
-
                                 <!-- </li> -->
 
                                <?php } else {?>
+
+                                <?php if($_SESSION["role"] == "technician") {?>
+                                   <li class="m-2"><a class="<?= ($site == "allTickets" ? "active" : "") ?>" href="?site=allTickets">Tickets</a></li>
+                                <?php } ?>
                                 <li class="m-2"><a class="<?= ($site == "logout" ? "active" : "") ?>" href="./logout.php">Logout</a></li>
                                  <?php }?>
 
