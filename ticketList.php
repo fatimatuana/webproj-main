@@ -5,6 +5,17 @@
     header("location: index.php");
   }
    $uploadDir = "./uploadGuest/";
+
+     if(isset($_POST["openTicket"]) && isset($_POST["id"])){
+            $sql2 = "UPDATE tickets set state='offen' where id=?";
+            $stmt = $db_obj->prepare($sql2);
+
+            $ticket_id = $_POST["id"];
+            
+            $stmt->bind_param("i" ,$ticket_id); 
+            $stmt->execute();
+        }
+
 ?>
 
 <body>
@@ -51,9 +62,12 @@
           <?php
             while ($row = $result->fetch_array()) { //_assoc works, _object not
             echo '<div class="container">
+                      <form method="post" enctype="multipart/form-data">
+
                     <div class="row">
+                      <input name="id" value='.$row['id'].' hidden></input>
                       <div class="col-sm">
-                         <h5 class="card-title">'.$row['title'].'</h5>
+                         <h5 class="card-title"><strong>'.$row['title'].'</strong></h5>
                       </div>
                       <div class="col-sm mx-auto justify-content-center">
                       <p class="card-text ">'.$row['info'].'</p>
@@ -62,11 +76,20 @@
                         <img class="card-img-top" src="./uploadGuest/'.$row['image'].'" alt="image"> 
                       </div>
                       <div class="col-sm">
-                        <p class="card-text">'.$row['state'].'</p>
+                        <p class="card-text">'.$row['state'].'</p>';
+
+                      if($row["state"] == "erfolglos geschlossen") {
+                         echo ' <button class="btn btn-danger" name="openTicket">erneut eröffnen &#x21ba;</button>';
+                      } 
+                        echo '
                       </div>
                     </div>
+                    </form>
                   </div>';
+
+
           }
+
 
 
             print_r($result->fetch_array(MYSQLI_ASSOC));
