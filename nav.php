@@ -36,6 +36,18 @@
                                 <?php } ?>
                                 <li class="m-2"><a class="<?= ($site == "logout" ? "active" : "") ?>" href="./logout.php">Logout</a></li>
                                  <?php }?>
+                      
+                      <?php if($_SESSION["role"] == "admin") {?>
+                                   <li class="dropdown">
+                                  <a class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <?= $_SESSION["username"] ?>
+                                  </a>
+                                  <ul class="dropdown-menu dropdown-menu-dark">
+                                  <a class="<?=($site == "signUpGuest.php" ? "active" : "") ?> dropdown-item" href="?site=signUpGuest">Gast registrieren</a>
+                                  <a class="<?=($site == "userAdministration" ? "active" : "") ?> dropdown-item" href="?site=userAdministration">User verwalten</a>
+                                    <a class="<?= ($site == "settings" ? "active" : "") ?> dropdown-item" href="?site=settings">Einstellungen</a>                   
+                                      <a class="<?= ($site == "logout" ? "active" : "") ?> dropdown-item" href="./logout.php">Logout</a>
+                                <?php } ?>
 
                     <?php }?>
 
