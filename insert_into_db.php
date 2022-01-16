@@ -1,3 +1,5 @@
+
+
 <?php
 require_once ('dbaccess.php');
 
@@ -12,7 +14,7 @@ $_POST["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 
 //create $db_obj, create sql statement, prepare it and bind the variables to it
-$gender = $_POST["gender"]; //in der DB steht bei gender "on"?
+$gender = $_POST["gender"]; 
 $fname = $_POST["firstname"];
 $lname = $_POST["lastname"];
 $uname = $_POST["username"];
@@ -36,3 +38,4 @@ $stmt->close(); $db_obj->close();
 }
 }
 ?>
+
