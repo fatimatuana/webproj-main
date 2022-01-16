@@ -36,7 +36,14 @@
                     "loginTest" => "./loginTest.php",
                     "settings" => "./settings.php",
                     "allTickets" => "./allTickets.php",
-                    "signUpGuest" => "./signUpGuest.php"];
+                    "signUpGuest" => "./signUpGuest.php",
+                    "userAdministration" => "./userAdministration.php",
+                    "userEdit" => "./userEdit.php",
+                    "createNews" => "./createNews.php",
+                    "editNews" => "./editNews.php",
+                    "editNewsFormular" => "./editNewsFormular.php",
+                    "userAdministration" => "./userAdministration.php",
+                    "userEdit" => "./userEdit.php"];
         $site = "home";
         if (isset($_GET["site"])) {
             $site = $_GET["site"];
