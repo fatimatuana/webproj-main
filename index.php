@@ -21,6 +21,8 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 
+
+
 </head>
 <header>
 
@@ -38,7 +40,6 @@
                     "allTickets" => "./allTickets.php",
                     "signUpGuest" => "./signUpGuest.php",
                     "userAdministration" => "./userAdministration.php",
-                    "userEdit" => "./userEdit.php",
                     "createNews" => "./createNews.php",
                     "editNews" => "./editNews.php",
                     "editNewsFormular" => "./editNewsFormular.php",
@@ -56,7 +57,6 @@
 
 </header>
 <body>
-
 
   <main>
         <?php
