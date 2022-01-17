@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 19. Dez 2021 um 09:26
+-- Erstellungszeit: 17. Jan 2022 um 16:52
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.0.12
 
@@ -30,7 +30,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `news` (
   `id` int(11) NOT NULL,
   `image` varchar(250) NOT NULL,
-  `info` text NOT NULL
+  `content` text NOT NULL,
+  `author` varchar(45) DEFAULT NULL,
+  `title` varchar(120) NOT NULL,
+  `dateTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -46,17 +49,18 @@ CREATE TABLE `tickets` (
   `image` varchar(250) NOT NULL,
   `state` varchar(50) NOT NULL,
   `title` varchar(80) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `reply` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `tickets`
 --
 
-INSERT INTO `tickets` (`id`, `user_id`, `info`, `image`, `state`, `title`, `timestamp`) VALUES
-(1, 1, 'das ist ein ticket vom user testuser1', 'placeholder.jpg', 'offen', 'ticket1', '2021-12-14 18:54:48'),
-(2, 1, 'auch das hier ist ein ticket vom user testuser1', 'placeholder.jpg', 'offen', 'ticket2', '2021-12-14 18:54:48'),
-(3, 2, 'das ist ein ticket vom user testuser2 balaa', 'placeholder2.jpg', 'offen', 'ticket3', '2021-12-14 18:54:48');
+INSERT INTO `tickets` (`id`, `user_id`, `info`, `image`, `state`, `title`, `timestamp`, `reply`) VALUES
+(1, 1, 'das ist ein ticket vom user testuser1', 'placeholder.jpg', 'offen', 'ticket1', '2022-01-14 22:42:22', 'wefwe'),
+(2, 1, 'auch das hier ist ein ticket vom user testuser1', 'placeholder.jpg', 'erfolglos geschlossen', 'ticket2', '2022-01-14 22:43:05', 'fgg'),
+(3, 2, 'das ist ein ticket vom user testuser2 balaa', 'placeholder2.jpg', 'erfolglos geschlossen', 'ticket3', '2022-01-14 21:05:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -67,6 +71,9 @@ INSERT INTO `tickets` (`id`, `user_id`, `info`, `image`, `state`, `title`, `time
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `gender` varchar(15) DEFAULT NULL,
+  `firstname` varchar(60) NOT NULL,
+  `lastname` varchar(60) NOT NULL,
   `password` char(60) NOT NULL,
   `email` varchar(100) NOT NULL,
   `role` varchar(25) NOT NULL,
@@ -77,11 +84,12 @@ CREATE TABLE `users` (
 -- Daten für Tabelle `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `state`) VALUES
-(1, 'testuser1', 'testuser', 'testuser@gmail.com', 'guest', 1),
-(2, 'testuser2', 'testuser2', 'testuser2@gmail.com', 'guest', 1),
-(3, 'admin', 'neues passwort', 'hae@gmail.com', 'admin', 1),
-(4, 'testuser3', 'passwordtestuser', 'testuser3333@gmail.com', 'guest', 1);
+INSERT INTO `users` (`id`, `username`, `gender`, `firstname`, `lastname`, `password`, `email`, `role`, `state`) VALUES
+(1, 'testuser1', '', 'testuser1', 'testuser1', '$2y$10$BfnJX3DEHgVSCjP6PA.MS.4yiHGg3sJPIxKU4OrAgIfkdYmPJ4ZLK', 'testuser@gmail.com', 'guest', 1),
+(2, 'testuser2', NULL, '', '', 'testuser2', 'testuser2@gmail.com', 'guest', 1),
+(3, 'admin', NULL, '', '', 'neues passwort', 'hae@gmail.com', 'admin', 1),
+(5, 'techniker', NULL, '', '', '123456', 'techniker@gmail.com', 'technician', 1),
+(6, 'ema33', 'male', 'adem', 'adem', '$2y$10$dme5DDdg0qf88.Ar9s4Rge3HKPKrxB2sWvkEn/znKw58bO.Nti8XS', 'adem@gmail.com', '', 0);
 
 --
 -- Indizes der exportierten Tabellen
@@ -127,7 +135,7 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
