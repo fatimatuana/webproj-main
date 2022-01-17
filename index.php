@@ -1,7 +1,6 @@
 <?php
     //setcookie("testcookie", "wert");
     session_start();
-
     include_once "dbaccess.php";
 ?>
 
@@ -58,7 +57,7 @@
 </header>
 <body>
 
-  <main>
+  <main style="min-height: 100vh">
         <?php
         //  include "sites/" . $site . ".php";
             if (isset($pages[$site])) {
@@ -73,10 +72,11 @@
 
 </body>
 
-<footer>
-    <div class="bg-light" > 
-        <p>Footer</p>
-        <p>to be implemented..</p>
+<footer class="my-0">
+    <div class="bg-light my-0 pb-0" > 
+        <div >
+                <p class="m-0">Footer</p>
+        </div>
     </div>
 
 </footer>

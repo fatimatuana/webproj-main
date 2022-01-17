@@ -19,7 +19,7 @@
     <?php
 
 include_once "dbaccess.php";
-$id = $_SESSION['id'];
+$id = $_GET['id'];
 
 if(isset($_POST['update'])) // when click on Update button
 {

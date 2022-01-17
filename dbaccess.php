@@ -10,7 +10,7 @@ if($db_obj->connect_error){
     exit;
 }
 else{
-    echo "successfully connected to database";
+   // echo "successfully connected to database";
 }
 
 ?>

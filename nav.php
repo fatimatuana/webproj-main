@@ -33,8 +33,8 @@
 
                                 <?php if($_SESSION["role"] == "technician") {?>
                                    <li class="m-2"><a class="<?= ($site == "allTickets" ? "active" : "") ?>" href="?site=allTickets">Tickets</a></li>
-                                <?php } ?>
-                                <li class="m-2"><a class="<?= ($site == "logout" ? "active" : "") ?>" href="./logout.php">Logout</a></li>
+                                    <li class="m-2"><a class="<?= ($site == "logout" ? "active" : "") ?>" href="./logout.php">Logout</a></li>
+                                    <?php } ?>
                                  <?php }?>
                       
                       <?php if($_SESSION["role"] == "admin") {?>
@@ -47,6 +47,7 @@
                                   <a class="<?=($site == "userAdministration" ? "active" : "") ?> dropdown-item" href="?site=userAdministration">User verwalten</a>
                                     <a class="<?= ($site == "settings" ? "active" : "") ?> dropdown-item" href="?site=settings">Einstellungen</a>                   
                                       <a class="<?= ($site == "logout" ? "active" : "") ?> dropdown-item" href="./logout.php">Logout</a>
+                                    </ul>
                                 <?php } ?>
 
                     <?php }?>
