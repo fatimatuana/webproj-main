@@ -24,6 +24,7 @@ if(!isset($seite))     //Falls keine Seite angegeben ist,
         {
             $id = $row->id;     //$id deklarieren
             $date = date("d.m.Y H:i", $row->dateTime);    //Da das Datum als Timestamp gespeichert ist, muss es formatiert werden; dies geht mit date()
+            //(zeile 26) muss irgendwie adaptiert werden -> normalerweise macht man das so dass man beim einfügen gleich den datentyp timestamp von der db auswählt   
             $title = $row->title;
             $author=$row->author;    //$titel deklarieren
             $content = $row->content;     //$beitrag deklarieren
@@ -48,7 +49,7 @@ if(!isset($seite))     //Falls keine Seite angegeben ist,
                </tr>
                <tr>
                    <td>
-                   <img class='card-img-top' src='./uploadImages/".$image."' alt='image' width=300 height=300>
+                   <img class='card-img-top' src='./uploadImage/".$image."' alt='image' width=300 height=300>
                    </td>
                </tr>
                <tr>
