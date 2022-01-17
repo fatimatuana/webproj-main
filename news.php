@@ -23,7 +23,7 @@ if(!isset($seite))     //Falls keine Seite angegeben ist,
         while($row = mysqli_fetch_object($ergebnis))     //Jede Zeile mittels mysql_fetch_object() auslesen.
         {
             $id = $row->id;     //$id deklarieren
-            $date = date("d.m.Y H:i", $row->dateTime);    //Da das Datum als Timestamp gespeichert ist, muss es formatiert werden; dies geht mit date()
+         //   $date = date("d.m.Y H:i", $row->dateTime);    //Da das Datum als Timestamp gespeichert ist, muss es formatiert werden; dies geht mit date()
             //(zeile 26) muss irgendwie adaptiert werden -> normalerweise macht man das so dass man beim einfügen gleich den datentyp timestamp von der db auswählt   
             $title = $row->title;
             $author=$row->author;    //$titel deklarieren
