@@ -29,6 +29,10 @@
             $stmt->execute();
         }
 
+        $selected ="alle"; //default value
+        if(isset($_POST["optSearch"])){
+              $selected = $_POST["optSearch"];
+        }
 ?>
 
 <body>
@@ -36,9 +40,29 @@
 
 <h1>Alle Tickets</h1>
 
-
+<div class="row mb-3">
+  <form method="post" enctype="multipart/form-data">
+  <div class="col-md-10 col-12">
+    <select name="optSearch" class="form-select col-6">
+        <option value="alle" <?= $selected == "alle" ? "selected" : ""?>>alle</option>
+        <option value="offen" <?= $selected == "offen" ? "selected" : ""?>>offen</option>
+        <option value="erfolglos geschlossen" <?= $selected == "erfolglos geschlossen" ? "selected" : ""?> >erfolglos geschlossen</option>
+        <option value="erfolgreich geschlossen" <?= $selected == "erfolgreich geschlossen" ? "selected" : ""?> >erfolgreich geschlossen</option>
+    </select>
+    </div>
+    <button class="btn btn-primary  col-md-2 col-12" type="submit" name="search">suchen</button>
+  </form>
+</div>
+                      
+                            
 <?php
-            $sql = "Select * from tickets";
+  if(isset($_POST["search"]) && $_POST["optSearch"] != "alle"){
+    $sql = "Select * from tickets where state = '".$_POST["optSearch"]."'";
+     $selected =  $_POST["optSearch"];
+  }
+  else{
+    $sql = "Select * from tickets";
+  }
             $result = $db_obj->query($sql);
           
           if( $result->num_rows == 0){
@@ -46,7 +70,7 @@
           }
 
               else { ?>
-                <div class="container my-3">
+                <div class="container my-3 d-none d-md-block">
                     <div class="row">
                       <div class="col-sm-2">
                         <h3>Titel</h3>
@@ -70,7 +94,7 @@
                   <form method="post" enctype="multipart/form-data">
                     <input name="id" value='.$row['id'].' hidden></input>
 
-                    <div class="row">
+                    <div class="row mb-3">
                       <div class="col-sm-2">
                          <h5 class="card-title"> <strong>'.$row['title'].'</strong></h5>
                          <p>'.$row['timestamp'].'</p>
@@ -79,7 +103,7 @@
                       <p class="card-text ">'.$row['info'].'</p>
                       </div>
                       <div class="col-sm-3 p-2">
-                        <img class="card-img-top" src="./uploadGuest/'.$row['image'].'" alt="image"> 
+                        <img class="card-img-top" src="'.$row['image'].'" alt="image"> 
                       </div>
 
                       <div class="col-sm-4">
