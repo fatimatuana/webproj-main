@@ -19,7 +19,7 @@
 <?php
 require_once ('dbaccess.php'); //to retrieve connection details
 
-$sql = "SELECT * FROM guests";
+$sql = "SELECT * FROM users";
 $result = $db_obj->query($sql);
 
 
@@ -39,13 +39,13 @@ while ($row = $result->fetch_assoc()) { //_assoc works, _object not
 
     
     echo "<tr>";
-        echo "<td>" . $row['ID'] . "</td>";
-        echo "<td>" . $row['Gender'] . "</td>";
-        echo "<td>" . $row['Firstname'] . "</td>";
-        echo "<td>" . $row['Lastname'] . "</td>";
-        echo "<td>" . $row['Username'] . "</td>";
-        echo "<td>" . $row['Email'] . "</td>";
-        echo "<td><a href=\"userEdit.php?id=". $row['ID'] ."\" >Bearbeiten</a></td>";
+        echo "<td>" . $row['id'] . "</td>";
+        echo "<td>" . $row['gender'] . "</td>";
+        echo "<td>" . $row['firstname'] . "</td>";
+        echo "<td>" . $row['lastname'] . "</td>";
+        echo "<td>" . $row['username'] . "</td>";
+        echo "<td>" . $row['email'] . "</td>";
+        echo "<td><a href=\"userEdit.php?id=". $row['id'] ."\" >Bearbeiten</a></td>";
     echo "</tr>";
     
     }

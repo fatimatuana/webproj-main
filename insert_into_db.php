@@ -22,13 +22,13 @@ $pass = $_POST["password"];
 $mail = $_POST["email"];
 
  
-$select = mysqli_query($db_obj, "SELECT * FROM guests WHERE username = '".$_POST['username']."'"); //checks if username already exists
+$select = mysqli_query($db_obj, "SELECT * FROM users WHERE username = '".$_POST['username']."'"); //checks if username already exists
 if(mysqli_num_rows($select)) {
     exit('This username already exists');
 }
   
 else {
-$stmt = $db_obj->prepare ("INSERT INTO guests (gender, firstname, lastname, username, email, password) VALUES(?, ?, ?, ?, ?, ?)");
+$stmt = $db_obj->prepare ("INSERT INTO users (gender, firstname, lastname, username, email, password) VALUES(?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssss", $gender, $fname, $lname, $uname, $mail, $pass);
 
 

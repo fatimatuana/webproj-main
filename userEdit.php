@@ -32,7 +32,7 @@ if(isset($_POST['update'])) // when click on Update button
     
      
 
-    $sql = "UPDATE guests SET gender='$gender', firstname='$fname', lastname='$lname', username='$uname', email='$mail', password='$pass' WHERE id=$id";
+    $sql = "UPDATE users SET gender='$gender', firstname='$fname', lastname='$lname', username='$uname', email='$mail', password='$pass' WHERE id=$id";
     
     
 	
@@ -53,7 +53,7 @@ else{
 
 
 
-$sql = "SELECT * FROM guests where id = '$id'";
+$sql = "SELECT * FROM users where id = '$id'";
 $result = $db_obj->query($sql);
 $userData = $result->fetch_assoc();
 }
@@ -62,20 +62,20 @@ $userData = $result->fetch_assoc();
      <h1>User bearbeiten</h1>
 
 <form method="POST">
-<input type="radio" name="gender"  id="male" value = "<?php echo $userData['Gender']?>">
+<input type="radio" name="gender"  id="male" value = "<?php echo $userData['gender']?>">
 <label for="gender">Herr</label></br>
-<input type="radio" name="gender"  id="female" value = "<?php echo $userData['Gender']?>">
+<input type="radio" name="gender"  id="female" value = "<?php echo $userData['gender']?>">
 <label for="gender">Frau</label></br>
 <label for="firstname">First name</label>
-<input type="text" name="firstname" class="form-control" id="firstname" value="<?php echo $userData['Firstname']?>" required></br>
+<input type="text" name="firstname" class="form-control" id="firstname" value="<?php echo $userData['firstname']?>" required></br>
 <label for="lastname">Last name</label>
-<input type="text" name="lastname" class="form-control" id="lastname" value="<?php echo $userData['Lastname']?>" required></br>
+<input type="text" name="lastname" class="form-control" id="lastname" value="<?php echo $userData['lastname']?>" required></br>
 <label for="username">Username</label>
-<input type="text" name="username" class="form-control" id="username"  value="<?php echo $userData['Username']?>" required></br>
+<input type="text" name="username" class="form-control" id="username"  value="<?php echo $userData['username']?>" required></br>
 <label for="email">Email</label>
-<input type="email" name="email" class="form-control" id="email"  value="<?php echo $userData['Email']?>" required></br>
+<input type="email" name="email" class="form-control" id="email"  value="<?php echo $userData['email']?>" required></br>
 <label for="password">Password</label>
-<input type="password" name="password" class="form-control" id="password"  value="<?php echo $userData['Password']?>" required></br>
+<input type="password" name="password" class="form-control" id="password"  value="<?php echo $userData['password']?>" required></br>
 <div class="form-group">
 <input type="submit" class="mt-3 btn btn-primary" name="update" value="Update">
 </div>
