@@ -36,7 +36,7 @@
                     "ticketList" => "./ticketList.php",
                     "loginTest" => "./loginTest.php",
                     "settings" => "./settings.php",
-                    "allTickets" => "./allTickets.php",
+                    "allTickets" => "./allTickets.php",                   
                     "signUpGuest" => "./signUpGuest.php",
                     "userAdministration" => "./userAdministration.php",
                     "createNews" => "./createNews.php",

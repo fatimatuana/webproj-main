@@ -35,15 +35,27 @@
         }
 ?>
 
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>
 <body>
     <div class="container">
+
 
 <h1>Alle Tickets</h1>
 
 <div class="row mb-3">
   <form method="post" enctype="multipart/form-data">
   <div class="col-md-10 col-12">
-    <select name="optSearch" class="form-select col-6">
+    <select name="optSearch" class="form-select">
         <option value="alle" <?= $selected == "alle" ? "selected" : ""?>>alle</option>
         <option value="offen" <?= $selected == "offen" ? "selected" : ""?>>offen</option>
         <option value="erfolglos geschlossen" <?= $selected == "erfolglos geschlossen" ? "selected" : ""?> >erfolglos geschlossen</option>
@@ -63,7 +75,7 @@
   else{
     $sql = "Select * from tickets";
   }
-            $result = $db_obj->query($sql);
+          $result = $db_obj->query($sql);
           
           if( $result->num_rows == 0){
             echo "<p class='mt-3'>Es sind keine Tickets vorhanden.</p>";
@@ -72,14 +84,11 @@
               else { ?>
                 <div class="container my-3 d-none d-md-block">
                     <div class="row">
-                      <div class="col-sm-2">
+                      <div class="col-sm-3">
                         <h3>Titel</h3>
                       </div>
-                      <div class="col-sm-3 mx-auto justify-content-center">
-                        <h3>Information</h3>
-                      </div>
-                      <div class="col-sm-3">
-                        <h3>Bild</h3>
+                      <div class="col-sm-5">
+                        <h3>Beschreibung</h3>
                       </div>
                       <div class="col-sm-4">
                         <h3>Status</h3>
@@ -95,16 +104,43 @@
                     <input name="id" value='.$row['id'].' hidden></input>
 
                     <div class="row mb-3">
-                      <div class="col-sm-2">
+                      <div class="col-sm-3">
                          <h5 class="card-title"> <strong>'.$row['title'].'</strong></h5>
                          <p>'.$row['timestamp'].'</p>
                       </div>
-                      <div class="col-sm-3 mx-auto justify-content-center">
+                      <div class="col-sm-5">
                       <p class="card-text ">'.$row['info'].'</p>
-                      </div>
-                      <div class="col-sm-3 p-2">
-                        <img class="card-img-top" src="'.$row['image'].'" alt="image"> 
-                      </div>
+                      
+              
+                          <input name="id" value='.$row['id'].' hidden></input>
+
+                          <!-- The Modal -->
+                         <div> 
+                              <button name="opnModal" type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#myModal'.$row['id'].'" >
+                              Mehr anzeigen
+                            </button>
+                            <div class="modal" id="myModal'.$row['id'].'">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                
+                                  <div class="modal-header">
+                                    <h4 class="modal-title">'.$row['title'].'</h4>
+                                    <button type="button" class="btn close" data-dismiss="modal">&times;</button>
+                                  </div>
+                                  <div class="modal-body">
+                                  '.$row['info'].'
+                                  <div class="col-sm-3 p-2">
+                                    <img class="card-img-top" src="'.$row['image'].'" alt="image"> 
+                                </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button class="btn btn-danger" data-dismiss="modal">Schließen</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>  <!-- The Modal -->
+                       </div>  
 
                       <div class="col-sm-4">
                         <select name="opt" class="form-select">
@@ -131,6 +167,9 @@
             print_r($result->fetch_assoc());
             echo "<pre>";
 
-         ?>
+       
+       ?>
+
+
 </div>
 </body>
