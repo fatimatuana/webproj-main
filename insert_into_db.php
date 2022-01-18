@@ -1,5 +1,3 @@
-
-
 <?php
 require_once ('dbaccess.php');
 
@@ -28,14 +26,16 @@ if(mysqli_num_rows($select)) {
 }
   
 else {
-$stmt = $db_obj->prepare ("INSERT INTO users (gender, firstname, lastname, username, email, password) VALUES(?, ?, ?, ?, ?, ?)");
+$stmt = $db_obj->prepare ("INSERT INTO users (gender, firstname, lastname, username, email, password, role) VALUES(?, ?, ?, ?, ?, ?, 'guest')");
 $stmt->bind_param("ssssss", $gender, $fname, $lname, $uname, $mail, $pass);
 
 
 
 if ($stmt->execute()) { echo "New user created"; } else { echo "Error"; }
 $stmt->close(); $db_obj->close();
+
 }
 }
 ?>
+<a href='index.php'> Back</a>
 
