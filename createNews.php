@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -16,12 +15,12 @@ $dateTime = time();
 $requiresVar = " ist erforderlich";
  
 
-if (isset($_POST['upload'])) {
+if (isset($_POST['upload'])) { 
 
-if (empty($_POST["content"])) {
+if (empty($_POST["content"])) {                 //wenn Content leer ist
     $contentErr = "Beitrag".$requiresVar;
   } else {
-    $content = test_input($_POST["content"]);
+    $content = test_input($_POST["content"]);  
   }
 
 if (empty($_POST["title"])) {
@@ -39,18 +38,18 @@ if (empty($_POST["author"])) {
 }
 
 function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
+  $data = trim($data);          //entfernt Leerzeichen
+  $data = stripslashes($data); //entfernt backslashes
+  $data = htmlspecialchars($data); //
   return $data;
 }
-//** */
+
 $uploadOk = 0;
 
 if (isset($_POST["upload"])  && isset($_FILES["file"])  ) { 
 $target_dir = "./uploadImage/";
 $target_file = $target_dir . basename($_FILES["file"]["name"]);
-$uploadOk = 1; ///********* */
+$uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 
@@ -62,10 +61,9 @@ if(isset($_POST["submit"]) ) {
 
   $check = getimagesize($_FILES["file"]["tmp_name"]);
   if($check !== false) {
-    //echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
   } else {
-    $errorMsg = "File is not an image.";
+    $errorMsg = "Das Dokument ist kein Foto";
     $uploadOk = 0;
   }
 }
@@ -73,20 +71,20 @@ if(isset($_POST["submit"]) ) {
 // Check if file already exists
 if (file_exists($target_file) && $target_file != $target_dir) {
   echo $target_file;
-  $errorMsg = "Sorry, file already exists.";
+  $errorMsg = "Sorry, Sie können das Foto nur einmal hochladen.";
   $uploadOk = 0;
 }
 
 // Check file size
 if ($_FILES["file"]["size"] > 500000) {
-  $errorMsg = "Sorry, your file is too large.";
+  $errorMsg = "Sorry, Ihr Foto ist zu groß.";
   $uploadOk = 0;
 }
 
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
   if($imageFileType != ""){
-         $errorMsg = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+         $errorMsg = "Sorry, nur JPG, JPEG, PNG & GIF sind erlaubt.";
   }
   $uploadOk = 0;
 }
@@ -96,26 +94,26 @@ if ($uploadOk == 0) {
     if ($_FILES["file"]["name"] == "") {
       $imageErr = "Ein Foto". $requiresVar;
     }
- // $errorMsg =  "Sorry, your file was not uploaded.";
+
 // if everything is ok, try to upload file
 } else {
   if(!empty($title) && !empty($content)){ //##
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-      $errorMsg = "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
+      $errorMsg = "Die Datei ". htmlspecialchars( basename( $_FILES["file"]["name"])). " wurde erfolgreich hochgeladen.";
     } else {
-      $errorMsg = "Sorry, there was an error uploading your file.";
+      $errorMsg = "Sorry, beim Hochladen Ihres Fotos ist ein Fehler aufgetreten.";
     }
-  } //##
+  } 
 }
-} //+++
+} 
 
-if($title != "" && $content != "" && $author != "" && $uploadOk == 1){//77
+if($title != "" && $content != "" && $author != "" && $uploadOk == 1){
     $sql = "INSERT INTO news (title, content, author, image, dateTime) VALUES (?, ?, ?, ?, ?)";
   $stmt = $db_obj->prepare($sql);
   $image = basename($_FILES["file"]["name"]);
   $stmt->bind_param("ssssi", $title, $content, $author, $image, $dateTime); 
   $stmt->execute();
-} //777
+} 
  
 ?>
 
@@ -132,7 +130,7 @@ if($title != "" && $content != "" && $author != "" && $uploadOk == 1){//77
 
 
       <!-- set the enctype -->
-      <form method="post" enctype="multipart/form-data"> <!--- ### --->
+      <form method="post" enctype="multipart/form-data">
 
          <div class="form-group">
 
