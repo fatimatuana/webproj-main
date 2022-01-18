@@ -109,9 +109,8 @@ $('#myModal').on('shown.bs.modal', function () {
                          <p>'.$row['timestamp'].'</p>
                       </div>
                       <div class="col-sm-5">
-                      <p class="card-text ">'.$row['info'].'</p>
+                      <p class="card-text">'.substr($row['info'],0,35).'...</p>
                       
-              
                           <input name="id" value='.$row['id'].' hidden></input>
 
                           <!-- The Modal -->
@@ -128,10 +127,10 @@ $('#myModal').on('shown.bs.modal', function () {
                                     <button type="button" class="btn close" data-dismiss="modal">&times;</button>
                                   </div>
                                   <div class="modal-body">
-                                  '.$row['info'].'
-                                  <div class="col-sm-3 p-2">
+                                  <div class="col-sm-6 p-2">
                                     <img class="card-img-top" src="'.$row['image'].'" alt="image"> 
                                 </div>
+                                                           '.$row['info'].'
                                   </div>
                                   <div class="modal-footer">
                                     <button class="btn btn-danger" data-dismiss="modal">Schließen</button>
