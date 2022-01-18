@@ -58,6 +58,7 @@ Alle Angaben sind ohne Gewähr.<br>
 <h4>VERANTWORTLICH FÜR DEN INHALT</h4><br>
 
 <p>
+<img src="imprintImage\Foto_Tuana.jpeg" width=200 height=250><br>
 <strong>Tuana Sirinyurt</strong><br>
 <!-- Foto -->
 </p>
