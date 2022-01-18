@@ -1,5 +1,3 @@
-
-
 <body>
     <div class = "container">
 <?php
@@ -12,7 +10,7 @@ $result = $db_obj->query($sql);
 echo "<h2>Gäste</h2>";
 echo "<table class='table table-stripe'>";
 echo "<tr>";
-        echo "<th>Id</th>";
+        
         echo "<th>Anrede</th>";
         echo "<th>Vorname</th>";
         echo "<th>Nachname</th>";
@@ -25,7 +23,7 @@ while ($row = $result->fetch_assoc()) { //_assoc works, _object not
 
     
     echo "<tr>";
-        echo "<td>" . $row['id'] . "</td>";
+       
         echo "<td>" . $row['gender'] . "</td>";
         echo "<td>" . $row['firstname'] . "</td>";
         echo "<td>" . $row['lastname'] . "</td>";
@@ -39,4 +37,3 @@ while ($row = $result->fetch_assoc()) { //_assoc works, _object not
 ?>
  </div>
 </body>
-
