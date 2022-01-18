@@ -18,7 +18,7 @@ bookingwien@hotelx.com <br>
 
 
 <p>
-<strong>EIN BETRIEB DER HOTEL DANIEL GRAZ BETRIEBSGESELLSCHAFT M.B.H.</strong> <br>
+<strong>EIN BETRIEB DER HOTEL X Wien BETRIEBSGESELLSCHAFT M.B.H.</strong> <br>
 Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz<br>
 </p>
 
@@ -63,7 +63,7 @@ Alle Angaben sind ohne Gewähr.<br>
 </p>
 
 <p>
-<!--<img src="imprintImage\Foto_Ehmayer.jpg">-->
+<img src="imprintImage\Foto_Sophia.jpg" width=200 height=250><br>
 <strong>Sophia Ehmayer<strong><br>
 </p>
 </div> 
