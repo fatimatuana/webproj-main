@@ -113,7 +113,7 @@ $('#myModal').on('shown.bs.modal', function () {
                       
                           <input name="id" value='.$row['id'].' hidden></input>
 
-                          <!-- modal --> <!-- "popup window" for more information
+                          <!-- modal --> <!-- "popup window" for more information -->
                          <div> 
                               <button name="opnModal" type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#myModal'.$row['id'].'" >
                               Mehr anzeigen
