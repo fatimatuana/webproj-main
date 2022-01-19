@@ -20,6 +20,12 @@
 
 include_once "dbaccess.php";
 $id = $_GET['id'];
+    
+    
+$sql = "SELECT * FROM users where id = '$id'";
+$result = $db_obj->query($sql);
+$userData = $result->fetch_assoc();
+
 
 if(isset($_POST['update'])) // when click on Update button
 {
@@ -29,7 +35,7 @@ if(isset($_POST['update'])) // when click on Update button
     $uname = $_POST["username"];
     $pass = password_hash($_POST["password"], PASSWORD_DEFAULT); //Passwort verschlüsseln
     $mail = $_POST["email"];
-    $state = $POST["state"];
+    $state = $_POST["state"];
     
      
 
@@ -40,23 +46,21 @@ if(isset($_POST['update'])) // when click on Update button
     if($db_obj->query($sql))
     {
     
-        mysqli_close($db_obj); // Close connection
+        //mysqli_close($db_obj); // Close connection
         header("location:index.php");
         
     }
     else
     {
-        echo mysqli_error();
+       // echo mysqli_error();
     }    	
 }
 else{
 
-
-
-
 $sql = "SELECT * FROM users where id = '$id'";
 $result = $db_obj->query($sql);
 $userData = $result->fetch_assoc();
+
 }
 
     ?>
