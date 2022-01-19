@@ -3,6 +3,7 @@ require_once ('dbaccess.php');
 
 
 if(isset($_POST["gender"]) && !empty($_POST["gender"])
+&& isset($_POST["role"]) && !empty($_POST["role"])
 && isset($_POST["firstname"]) && !empty($_POST["firstname"]) 
 && isset($_POST["lastname"]) && !empty($_POST["lastname"])
 && isset($_POST["username"]) && !empty($_POST["username"])
@@ -18,6 +19,7 @@ $lname = $_POST["lastname"];
 $uname = $_POST["username"];
 $pass = $_POST["password"];
 $mail = $_POST["email"];
+$role = $_POST["role"];
 
  
 $select = mysqli_query($db_obj, "SELECT * FROM users WHERE username = '".$_POST['username']."'"); //checks if username already exists
@@ -26,8 +28,8 @@ if(mysqli_num_rows($select)) {
 }
   
 else {
-$stmt = $db_obj->prepare ("INSERT INTO users (gender, firstname, lastname, username, email, password, role) VALUES(?, ?, ?, ?, ?, ?, 'guest')");
-$stmt->bind_param("ssssss", $gender, $fname, $lname, $uname, $mail, $pass);
+$stmt = $db_obj->prepare ("INSERT INTO users (gender, firstname, lastname, username, email, password, role) VALUES(?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssss", $gender, $fname, $lname, $uname, $mail, $pass, $role);
 
 
 
@@ -38,4 +40,3 @@ $stmt->close(); $db_obj->close();
 }
 ?>
 <a href='index.php'> Back</a>
-
