@@ -34,18 +34,18 @@
 
               else { ?>
                 <div class="container my-3 d-none d-md-block"> <!-- display if > md -->
-                    <div class="row">
-                      <div class="col-sm">
-                        <h3>Titel</h3>
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-sm ">
+                        <h3 class="p-2">Titel</h3>
                       </div>
-                      <div class="col-sm mx-auto justify-content-center">
-                        <h3>Beschreibung</h3>
-                      </div>
-                      <div class="col-sm">
-                        <h3>Bild</h3>
+                      <div class="col-sm ">
+                        <h3 class="p-2">Beschreibung</h3>
                       </div>
                       <div class="col-sm">
-                        <h3>Status</h3>
+                        <h3 class="p-2">Bild</h3>
+                      </div>
+                      <div class="col-sm ">
+                        <h3 class="p-2">Status</h3>
                       </div>
                     </div>
                   </div>
@@ -53,15 +53,14 @@
               <?php } ?>
           <?php
             while ($row = $result->fetch_array()) {
-            echo '<div class="container">
+            echo '
                       <form method="post" enctype="multipart/form-data">
-
                     <div class="row mt-3">
                       <input name="id" value='.$row['id'].' hidden></input>
-                      <div class="col-sm">
-                         <h5 class="card-title"><strong>'.$row['title'].'</strong></h5>
+                      <div class="col-sm m-2">
+                         <h5 class="card-title m-2"><strong>'.$row['title'].'</strong></h5>
                       </div>
-                      <div class="col-sm mx-auto justify-content-center">
+                      <div class="col-sm m-2">
                       <p class="card-text ">'.$row['info'].'</p>
                       </div>
                       <div class="col-sm p-2">
@@ -79,7 +78,7 @@
                       </div>
                     </div>
                     </form>
-                  </div>';
+                  ';
 
 
           }
