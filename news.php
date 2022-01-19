@@ -53,7 +53,13 @@ if(!isset($seite))     //Falls keine Seite angegeben ist,
                </tr>
                <tr>
                <td>
-                   Von $author --- $date    <a href='editNewsFormular.php?id=$id'>Bearbeiten</a></button>
+                   Von $author --- $date  "; 
+                
+                   if($_SESSION['role'] == 'admin'){
+                       echo " <a href='editNewsFormular.php?id=$id'>Bearbeiten</a> ";
+                   }
+
+                  echo  "
                    <hr>
                </td>
            </tr>  
@@ -92,9 +98,13 @@ if(!isset($seite))     //Falls keine Seite angegeben ist,
         echo "<a href='?site=createNews'>Neuen Beitrag erstellen</a>";
         }*/
 
-        ?>
+        
+                   if($_SESSION['role'] == 'admin'){
+                       echo " <a href='?site=createNews'>Neuen Beitrag erstellen</a> ";
+                   }
 
-        <a href='?site=createNews'>Neuen Beitrag erstellen</a>
+
+        ?>
    
 
     </div>
