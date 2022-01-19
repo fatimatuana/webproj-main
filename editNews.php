@@ -33,10 +33,7 @@
      {
          echo 'Der Beitrag wurde erfolgreich ge&auml;ndert. <a href="index.php">Startseite</a>';
      }
-     else   //ansonsten
-     {
-         echo 'Fehler beim &Auml;ndern des Beitrages. <a href="bearbeiten_formular.php?id='.$id.'">Zur&uuml;ck</a>';
-     }
+     
  }
  ?>
 </body>
