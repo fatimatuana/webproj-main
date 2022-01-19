@@ -15,6 +15,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 </head>
 <body>
+ <div class="container">
 <?php
 require_once('dbaccess.php');    //Verbinden mit der Datenbank
  
@@ -45,6 +46,7 @@ $row = mysqli_fetch_object($ergebnis);
           <!-- Image upload -->
             <input class="btn btn-primary" type="submit" value="Save" />
         </form>
+</div>
 </div>
 </div>
 </body>
