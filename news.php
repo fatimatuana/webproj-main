@@ -55,7 +55,7 @@ if(!isset($seite))     //Falls keine Seite angegeben ist,
                <td>
                    Von $author --- $date  "; 
                 
-                   if($_SESSION['role'] == 'admin'){
+                   if(isset($_SESSION['role']) && $_SESSION["role"] == 'admin'){
                        echo " <a href='editNewsFormular.php?id=$id'>Bearbeiten</a> ";
                    }
 
