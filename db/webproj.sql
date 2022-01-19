@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 19. Jan 2022 um 17:49
+-- Erstellungszeit: 19. Jan 2022 um 17:53
 -- Server-Version: 10.4.21-MariaDB
 -- PHP-Version: 8.0.12
 
@@ -96,8 +96,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `gender`, `firstname`, `lastname`, `password`, `email`, `role`, `state`) VALUES
-(1, 'testuser1', 'female', 'testuser1', 'testuser1', '$2y$10$1XdxDZqz5GTK6RbOrgbupO8wiOTq/R4kj6caqIE4BBV/tm//XLk/u', 'testuser1@gmail.com', 'guest', 1),
-(6, 'admin', 'male', 'admin', 'admin', '$2y$10$B7Dq8FzkiQ3hLz6LJdXEBe/HNzqCeYwah7t.H7KOy2wpW..xtdn1y', 'admin@gmail.com', 'admin', 0),
+(1, 'lukas', 'male', 'Lukas', 'Hofer', '$2y$10$mAW6rvyCEOoxXCv2B1p7eO6gcDBrJxTtwUDx2ps6mEF6XMinOi.UC', 'lukas@gmail.com', 'guest', 1),
+(6, 'admin', 'female', 'admin', 'admin', '$2y$10$B7Dq8FzkiQ3hLz6LJdXEBe/HNzqCeYwah7t.H7KOy2wpW..xtdn1y', 'admin@gmail.com', 'admin', 0),
 (8, 'user', 'female', 'user', 'user', '$2y$10$Cc93QHWpvAHhaoirXexlAO9uaUE2GtEH0VY/nQPs9htWQXGHmBtve', 'user@gmail.com', 'guest', 0),
 (9, 'techniker1', 'male', 'techniker1', 'techniker1', '$2y$10$sO4PfsnWHuCn2D3yRMgap.8LBFMpSQAyMBqWGWW.LHv75jWazIaFe', 'techniker1@gmail.com', 'technician', 0);
 
