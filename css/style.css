@@ -27,12 +27,6 @@ a:active {
   box-shadow: 3px 3px 10px lightgray;
 }
 
-@media all and (min-width: 1124px) {
-  .container {
-    margin: 0px 5em;
-  }
-}
-
 .btn-primary-p {
   padding: 10px;
   border: 0px solid;
@@ -69,4 +63,17 @@ header a:hover {
 
 h1 {
   padding: 30px 0px;
+}
+
+@media all and (min-width: 1124px) {
+  .container {
+    margin: 0px 5em;
+  }
+}
+
+.centeredOnImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
