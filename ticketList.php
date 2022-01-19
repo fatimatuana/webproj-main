@@ -39,7 +39,7 @@
                         <h3>Titel</h3>
                       </div>
                       <div class="col-sm mx-auto justify-content-center">
-                        <h3>Information</h3>
+                        <h3>Beschreibung</h3>
                       </div>
                       <div class="col-sm">
                         <h3>Bild</h3>
