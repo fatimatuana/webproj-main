@@ -25,7 +25,7 @@
 <a type="button" class="btn btn-primary btn-lg" name="newTicket" href="?site=createTicket">Neues Ticket erstellen +</a>
 
 <?php
-            $sql = "Select * from tickets where user_id = ".$_SESSION["id"]." "; //dynamisch
+            $sql = "Select * from tickets where user_id = ".$_SESSION["id"]." "; 
             $result = $db_obj->query($sql);
         
           if( $result->num_rows == 0){ 

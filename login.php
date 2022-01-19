@@ -6,10 +6,10 @@ if(isset($_POST["login"]) && isset($_POST["username"])){
         $sql = "Select * from users where username = '".$_POST["username"]."'"; //dynamisch
         $result = $db_obj->query($sql);
 
-    if($result->num_rows == 0){
+    if($result->num_rows == 0){ //if no user found
         $nouserErr = "Es gibt keinen Benutzer mit diesem Benutzernamen. Wenden Sie sich bitte an Ihren Administrator.";
     }
-    else{ //wenn es einen user gibt
+    else{ //if there is a user with th username
         $row = $result->fetch_array(); 
         $hash = $row["password"];
         if (password_verify($_POST["password"], $hash)) {
@@ -18,7 +18,7 @@ if(isset($_POST["login"]) && isset($_POST["username"])){
             $_SESSION["role"] = $row['role'];
             header("Location:index.php");
         }
-       else{
+       else{ //wrong password
             if(!isset($_SESSION["username"])) {
                 $passwordErr = "Das eingegebene Passwort ist falsch. Sollten Sie Ihr Passwort vergessen haben, wenden Sie sich bitte an Ihren Administrator."; //** */
             }

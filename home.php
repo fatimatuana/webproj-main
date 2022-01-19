@@ -1,13 +1,13 @@
 <body>
 
 <div style="position: relative; color: white;">
-    <img width="100%" src="./images/hotel-home.jpg"/> 
+    <img width="100%" src="./images/hotel-home.jpg"/> <!-- usage of style attribute bc: design is only for that element -->
     <div style=" position: absolute; top: 50%;left: 25%;transform: translate(-50%, -50%); text-shadow: 5px 5px 6px #000000;">
 
              <?php
         if(isset($_SESSION["username"])) {
         ?>
-        <h1 class="display-1">Hallo <?php echo $_SESSION["username"]; ?>!</h1>
+        <h1 class="display-1">Hallo <?php echo $_SESSION["username"]; ?>!</h1> <!-- username from logged in user is displayed -->
         <?php
         }else echo "<h1 class='display-1'>Hallo lieber Gast!</h1>";
         ?>

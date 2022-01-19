@@ -18,7 +18,7 @@
         }
 
 
-        if(isset($_POST["replyBtn"]) && isset($_POST["reply"])){
+        if(isset($_POST["replyBtn"]) && isset($_POST["reply"])){ //if technician reply
             $sql2 = "UPDATE tickets set reply=? where id=?";
             $stmt = $db_obj->prepare($sql2);
 
@@ -68,7 +68,7 @@ $('#myModal').on('shown.bs.modal', function () {
                       
                             
 <?php
-  if(isset($_POST["search"]) && $_POST["optSearch"] != "alle"){
+  if(isset($_POST["search"]) && $_POST["optSearch"] != "alle"){ //only some of the data is called
     $sql = "Select * from tickets where state = '".$_POST["optSearch"]."'";
      $selected =  $_POST["optSearch"];
   }
@@ -113,7 +113,7 @@ $('#myModal').on('shown.bs.modal', function () {
                       
                           <input name="id" value='.$row['id'].' hidden></input>
 
-                          <!-- The Modal -->
+                          <!-- modal --> <!-- "popup window" for more information
                          <div> 
                               <button name="opnModal" type="button" class="btn btn-primary my-2" data-toggle="modal" data-target="#myModal'.$row['id'].'" >
                               Mehr anzeigen
@@ -138,7 +138,7 @@ $('#myModal').on('shown.bs.modal', function () {
                                 </div>
                               </div>
                             </div>
-                          </div>  <!-- The Modal -->
+                          </div>  <!-- modal -->
                        </div>  
 
                       <div class="col-sm-4">

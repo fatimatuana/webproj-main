@@ -40,7 +40,7 @@ if (isset($_POST["upload"])  && isset($_FILES["file"])  ) {
 $target_dir = "./uploadGuest/";
 $target_file = $target_dir . basename($_FILES["file"]["name"]);
 $uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); //getting image type
 
 
 $errorMsg = "";
@@ -88,8 +88,8 @@ if ($uploadOk == 0) {
     // if everything is ok, try to upload file
 } else {
   if(!empty($title) && !empty($info)){ 
-    $target_fileNew = $target_dir .date('Y-m-d_h-i-s'). basename($_FILES["file"]["name"]); //name is changed //new name of pic
-    $target_fileNewOnlyName = date('Y-m-d_h-i-s'). basename($_FILES["file"]["name"]);
+    $target_fileNew = $target_dir .date('Y-m-d_h-i-s'). basename($_FILES["file"]["name"]); //that's the whole path
+    $target_fileNewOnlyName = date('Y-m-d_h-i-s'). basename($_FILES["file"]["name"]); //only the name of the new pic is saved -> for the db
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_fileNew)) { //pic has been uploaded
       header("refresh:1;url=?site=ticketList" ); //redirect after 2 sec
 
@@ -103,7 +103,7 @@ if ($uploadOk == 0) {
 if($title != "" && $info != "" && $uploadOk == 1){
    $sql = "INSERT INTO tickets (user_id,title, info, image, state) VALUES (?,?, ?, ?, ?)";
   $stmt = $db_obj->prepare($sql);
-  $image =  $target_fileNewOnlyName;//basename($_FILES["file"]["name"]);
+  $image =  $target_fileNewOnlyName;
   $state = "offen"; //by default
   $user_id = $_SESSION["id"];
   $stmt->bind_param("issss",$user_id, $title, $info, $image, $state); 

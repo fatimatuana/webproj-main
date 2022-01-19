@@ -11,10 +11,10 @@
                   <li class="m-2"><a class="<?= ($site == "imprint" ? "active" : "") ?>" href="?site=imprint">Impressum</a></li>
 
                     <?php
-                    if(!isset($_SESSION["username"])) {
-                    ?> <!-- if-abfrage eig unnötig  -->
+                    if(!isset($_SESSION["username"])) { //if there is an user
+                    ?>
                       <li class="m-2"><a class="<?= ($site == "login" ? "active" : "") ?>" href="?site=login">Login</a></li>
-                      <!-- die Links zur Login & Registrierungsseite werden nur angezeigt, wenn kein user angemeldet ist -->
+                      <!-- links for login &  sign up are only displayed if there is no user logged in -->
                      <?php } else {?>
                           <?php if($_SESSION["role"] == "guest") {?>
                                   <li class="m-2"><a class="<?= ($site == "ticketList" ? "active" : "") ?>" href="?site=ticketList">Meine Tickets</a></li>                    
@@ -27,17 +27,16 @@
                                       <a class="<?= ($site == "logout" ? "active" : "") ?> dropdown-item" href="./logout.php">Logout</a>
                                   </ul>
                                 </li>
-                                <!-- </li> -->
 
                                <?php } else {?>
 
-                                <?php if($_SESSION["role"] == "technician") {?>
+                                <?php if($_SESSION["role"] == "technician") {?> <!-- if user is a technician -->
                                    <li class="m-2"><a class="<?= ($site == "allTickets" ? "active" : "") ?>" href="?site=allTickets">Tickets</a></li>
                                     <li class="m-2"><a class="<?= ($site == "logout" ? "active" : "") ?>" href="./logout.php">Logout</a></li>
                                     <?php } ?>
                                  <?php }?>
                       
-                      <?php if($_SESSION["role"] == "admin") {?>
+                      <?php if($_SESSION["role"] == "admin") {?> <!-- if user is an admin -->
                                    <li class="dropdown">
                                   <a class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                   <?= $_SESSION["username"] ?>
