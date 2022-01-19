@@ -1,7 +1,11 @@
 # webproj
 
 web project semester 1
+Sophia Ehmayer & Tuana Sirinyurt
 
-userdata: testuser1, testuser2, testuser3
+Die login-Daten lauten:
+*admin: admin-admin
+*user: lukas-lukas | user-user
+\*servicetechniker: techniker1-techniker1
 
-password: 123456 (derzeit hardcoded - warte auf die registrierung)
+Die .sql-Datei finden Sie in dem Ordner "db"
