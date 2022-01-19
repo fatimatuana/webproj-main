@@ -80,7 +80,7 @@
             </div>
             <div class="col mt-5 mb-5 d-flex justify-content-center">
                 FH Technikum Wien<br>
-                2022 (c) 
+                2022 &copy;
             </div>
             <div class="col mt-5 mb-5 d-flex justify-content-center">
             administration@hotelx.com<br>
