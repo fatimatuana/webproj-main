@@ -65,7 +65,7 @@ Alle Angaben sind ohne Gewähr.<br>
 
 <p>
 <img src="imprintImage\Foto_Sophia.jpg" width=200 height=250><br>
-<strong>Sophia Ehmayer<strong><br>
+<strong>Sophia Ehmayer</strong><br>
 </p>
 </div> 
 </div>
