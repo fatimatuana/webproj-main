@@ -99,7 +99,7 @@ if(!isset($seite))     //Falls keine Seite angegeben ist,
         }*/
 
         
-                   if($_SESSION['role'] == 'admin'){
+                   if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'){
                        echo " <a href='?site=createNews'>Neuen Beitrag erstellen</a> ";
                    }
 
