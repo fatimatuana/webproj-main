@@ -65,7 +65,7 @@
                       <p class="card-text ">'.$row['info'].'</p>
                       </div>
                       <div class="col-sm p-2">
-                        <img class="card-img-top" src="'.$row['image'].'" alt="image"> 
+                        <img class="card-img-top" src="./uploadGuest/'.$row['image'].'" alt="image"> 
                       </div>
                       <div class="col-sm">
                         <p class="card-text">'.$row['state'].'</p>';
