@@ -23,16 +23,17 @@ $id = $_GET['id'];
 
 if(isset($_POST['update'])) // when click on Update button
 {
-    $gender = $_POST["gender"]; //in der DB steht bei gender "on"?
+    $gender = $_POST["gender"]; 
     $fname = $_POST["firstname"];
     $lname = $_POST["lastname"];
     $uname = $_POST["username"];
-    $pass = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $pass = password_hash($_POST["password"], PASSWORD_DEFAULT); //Passwort verschlüsseln
     $mail = $_POST["email"];
+    $state = $POST["state"];
     
      
 
-    $sql = "UPDATE users SET gender='$gender', firstname='$fname', lastname='$lname', username='$uname', email='$mail', password='$pass' WHERE id=$id";
+    $sql = "UPDATE users SET gender='$gender', firstname='$fname', lastname='$lname', username='$uname', email='$mail', password='$pass', state='$state' WHERE id=$id";
     
     
 	
@@ -40,7 +41,7 @@ if(isset($_POST['update'])) // when click on Update button
     {
     
         mysqli_close($db_obj); // Close connection
-        header("location:userAdministration.php");
+        header("location:index.php");
         
     }
     else
@@ -76,6 +77,10 @@ $userData = $result->fetch_assoc();
 <input type="email" name="email" class="form-control" id="email"  value="<?php echo $userData['email']?>" required></br>
 <label for="password">Password</label>
 <input type="password" name="password" class="form-control" id="password"  value="<?php echo $userData['password']?>" required></br>
+<input type="radio" name="state"  id="active" value = "<?php echo $userData['state']?>">
+<label for="state">Aktiv</label></br>
+<input type="radio" name="state"  id="inactive" value = "<?php echo $userData['state']?>">
+<label for="state">Inaktiv</label></br>
 <div class="form-group">
 <input type="submit" class="mt-3 btn btn-primary" name="update" value="Update">
 </div>
