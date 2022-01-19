@@ -106,7 +106,7 @@ $('#myModal').on('shown.bs.modal', function () {
                     <div class="row mb-3">
                       <div class="col-sm-3">
                          <h5 class="card-title"> <strong>'.$row['title'].'</strong></h5>
-                         <p>'.$row['timestamp'].'</p>
+                         <p>'.date("d.m.Y h:m",strtoTime($row['timestamp'])).'</p>
                       </div>
                       <div class="col-sm-5">
                       <p class="card-text">'.substr($row['info'],0,35).'...</p>
@@ -123,7 +123,7 @@ $('#myModal').on('shown.bs.modal', function () {
                                 <div class="modal-content">
                                 
                                   <div class="modal-header">
-                                    <h4 class="modal-title">'.$row['title'].'</h4>
+                                    <h4 class="modal-title"><strong>'.$row['title'].'</strong></h4>
                                     <button type="button" class="btn close" data-dismiss="modal">&times;</button>
                                   </div>
                                   <div class="modal-body">
