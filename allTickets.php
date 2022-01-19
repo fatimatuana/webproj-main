@@ -106,7 +106,7 @@ $('#myModal').on('shown.bs.modal', function () {
                     <div class="row mb-3">
                       <div class="col-sm-3">
                          <h5 class="card-title"> <strong>'.$row['title'].'</strong></h5>
-                         <p>'.date("d.m.Y h:m",strtoTime($row['timestamp'])).'</p>
+                         <p>'.date("d.m.Y H:i",strtoTime($row['timestamp'])).'</p>
                       </div>
                       <div class="col-sm-5">
                       <p class="card-text">'.substr($row['info'],0,35).'...</p>
@@ -128,7 +128,7 @@ $('#myModal').on('shown.bs.modal', function () {
                                   </div>
                                   <div class="modal-body">
                                   <div class="col-sm-6 p-2">
-                                    <img class="card-img-top" src="'.$row['image'].'" alt="image"> 
+                                    <img class="card-img-top" src="./uploadGuest/'.$row['image'].'" alt="image"> 
                                 </div>
                                                            '.$row['info'].'
                                   </div>
