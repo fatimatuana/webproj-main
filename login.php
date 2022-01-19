@@ -42,7 +42,7 @@ if(isset($_POST["login"]) && isset($_POST["username"])){
         <div class="form-group">
             <input type="password" autocomplete="off" class="form-control mt-2" placeholder="Passwort" name="password" required="required">
             <?php if(isset($passwordErr)){ ?>
-                <p class="error"><?php echo $passwordErr?></p>
+                <p class="error mt-2"><?php echo $passwordErr?></p>
             <?php  } ?>
         </div>
         <div class="form-group">
