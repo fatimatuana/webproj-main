@@ -1,5 +1,4 @@
 <?php
-    //setcookie("testcookie", "wert");
     session_start();
     include_once "dbaccess.php";
 ?>
@@ -17,7 +16,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 
 
@@ -59,7 +57,6 @@
 
   <main style="min-height: 100vh">
         <?php
-        //  include "sites/" . $site . ".php";
             if (isset($pages[$site])) {
                 include $pages[$site];
             } else {
@@ -72,12 +69,28 @@
 
 </body>
 
-<footer class="my-0">
+<footer class="mt-3">
     <div class="bg-light my-0 pb-0" > 
-        <div >
-                <p class="m-0">Footer</p>
+      
+   <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col mt-5 mb-5 d-flex justify-content-center">
+            Sophia Ehmayer<br>
+            Tuana Sirinyurt
+            </div>
+            <div class="col mt-5 mb-5 d-flex justify-content-center">
+                FH Technikum Wien<br>
+                2022 (c) 
+            </div>
+            <div class="col mt-5 mb-5 d-flex justify-content-center">
+            administration@hotelx.com<br>
+             +43 1234 5678
+            </div>
         </div>
+    </div>          
+
     </div>
+
 
 </footer>
 
