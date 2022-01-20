@@ -7,9 +7,9 @@
              <?php
         if(isset($_SESSION["username"])) {
         ?>
-        <h1 class="display-1">Hallo <?php echo $_SESSION["username"]; ?>!</h1> <!-- username from logged in user is displayed -->
+        <h1>Hallo <?php echo $_SESSION["username"]; ?>!</h1> <!-- username from logged in user is displayed -->
         <?php
-        }else echo "<h1 class='display-1'>Hallo lieber Gast!</h1>";
+        }else echo "<h1 >Hallo lieber Gast!</h1>";
         ?>
 
 
